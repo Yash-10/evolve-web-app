@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    <div class="page-header">
+        <h1>My posts</h1>
+    </div>
+    <br>
+
+    {% if show %}
+
+        <div style="color: #808080; font-weight: bold">
+                Time shown here is UTC (Coordinated Universal Time). <a href="https://www.timeanddate.com/worldclock/fixedtime.html?msg=What+is+the+Cloud%3F&iso=20200731T12&p1=797&ah=1">Click here</a> to convert into your own timezone
+        </div>
+
+        {% for i in range(length_of_my_blogs) %}
+            <div name="blog" class="card">
+                <div style="font-weight: bold; color: Orange;" class="card-header">
+                    My Post on {{ row_index[i]["time"] }}
+                    &nbsp
+                    &nbsp
+                    &nbsp
+                    <br>
+                    <br>
+                    <div align="right">
+                        <form action="/" method="post">
+                            <input type="hidden" value="{{ row_index[i]['text'] }}" name="to_delete">
+                            <button class="btn btn-danger" type="submit" name="submit">Delete my post</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="card-body" style="color: #4682B4">
+                    <h3 name="mytitle" class="card-title">Title: {{ row_index[i]["title"] }}</h3>
+                </div>
+
+                <div id="accordion">
+                    <div class="card">
+                        <div class="card-header" id="headingOne">
+                            <h5 class="mb-0">
+                                <div>
+                                    <h5 name="mypost" style="color: #008000">Blog Content</h5>
+                                </div>
+                            </h5>
+                        </div>
+
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                            <div class="card-body">
+                                {{ row_index[i]["text"] }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+        {% endfor %}
+
+    {% else %}
+        <div class="page-header" style="font-weight: bold;">
+            You don't have anything to show! Write your first post now!
+        </div>
+    {% endif %}
+
+{% endblock %}

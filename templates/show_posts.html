@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    All posts
+{% endblock %}
+
+{% block main %}
+    <div class="page-header">
+        <h1>All posts</h1>
+    </div>
+    <div style="color: #808080; font-size: 15px; font-weight: bold">
+        Time shown here is UTC (Coordinated Universal Time). <a href="https://www.timeanddate.com/worldclock/fixedtime.html?msg=What+is+the+Cloud%3F&iso=20200731T12&p1=797&ah=1">Click here</a> to convert into your own timezone
+    </div>
+    <br>
+    {% for i in range(length_of_all_posts) %}
+        <div class="card">
+            <div style="font-weight: bold; color: Orange;" class="card-header">
+                Post by {{ posts[i]["names"] }} on {{ posts[i]["time"] }}
+                &nbsp
+                &nbsp
+                &nbsp
+                <br>
+                <br>
+                <div align="right">
+                    <form action="/display_posts" method="post">
+                        <input type="hidden" value="{{ posts[i]['like'] }}" name="to_like">
+                        <input type="hidden" value="{{ posts[i]['text'] }}" name="to_like_blog">
+                        <input type="hidden" value="{{ posts[i]['title'] }}" name="to_like_blog_title">
+                        <button class="btn btn-info" type="submit" name="submit" id="like_or_not">
+                            Likes <span name="like_counter" class="badge badge-light">{{ posts[i]["like"] }}</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="card-body" style="color: #4682B4">
+                <h3 class="card-title">Title: {{ posts[i]["title"] }}</h3>
+            </div>
+
+            <div id="accordion">
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                            <div>
+                                <h5 style="color: #008000">Blog Content</h5>
+                            </div>
+                        </h5>
+                    </div>
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                        <div class="card-body">
+                            {{ posts[i]["text"] }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+
+    {% endfor %}
+
+{% endblock %}

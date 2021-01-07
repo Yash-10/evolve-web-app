@@ -1,0 +1,91 @@
+nav .navbar-brand
+{
+    /* size for brand */
+    font-size: xx-large;
+}
+
+/* colors for brand */
+nav .navbar-brand .blue
+{
+    color: #537fbe;
+}
+nav .navbar-brand .green
+{
+    color: #2e944b;
+}
+main
+{
+    overflow-x: auto;
+    text-align: center;
+}
+
+.display-4
+{
+    font-family: sans-serif;
+    color: #1E90FF;
+}
+
+.lead
+{
+    color: #3CB371;
+    font-weight: 400;
+}
+
+.page-header
+{
+    color: #6495ED;
+}
+
+form
+{
+    text-align: center;
+}
+
+.text-muted
+{
+    font-size: 12px;
+}
+
+body
+{
+    background-color: #483D8B;
+    background-image: url("cool.jpg");
+}
+
+main
+{
+    /* scroll horizontally as needed */
+    overflow-x: auto;
+
+    /* center contents */
+    text-align: center;
+
+}
+
+.nav-item
+{
+    color: blue;
+}
+
+.alert.success
+{
+    font-weight: bold;
+    background-color: green;
+}
+
+.jumbotron
+{
+    background-color: #ccd9ff;
+    background-image: url("circle.jpg");
+
+}
+
+.nav.navbar-nav.navbar-right li a {
+    color: blue;
+}
+
+nav .navbar-brand
+{
+    color: lightblue;
+}
+

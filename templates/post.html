@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Create a post
+{% endblock %}
+
+{% block main %}
+    <form action="/create_post" method="post">
+        <div class="form-group">
+            <div class="page-header">
+                <h1>Publish your thoughts</h1>
+            </div>
+            <br>
+            <input autofocus autocomplete="off" name="title_post" class="form-control" type="text" placeholder="Title">
+            <br>
+            <textarea autocomplete="off" name="content_post" class="form-control" id="exampleFormControlTextarea1" placeholder="Write your content here..." rows="8"></textarea>
+        </div>
+        <br>
+        <br>
+        <br>
+        <button class="btn btn-primary" type="submit" name="submit">Add a post</button>
+    </form>
+{% endblock %}
